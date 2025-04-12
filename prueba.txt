@@ -1,5 +1,2 @@
-<<<<<<< HEAD
-alksdjaslkdjaskdjasd
-=======
-Hola
->>>>>>> f53c5de (hola)
+
+
