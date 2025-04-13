@@ -1,7 +1,7 @@
 // tests/testVerificarPin.ts
 
 import connectDB from '../config/db';
-import { TarjetaService } from '../services/tarjeta.service';
+import { TarjetaService } from '../services/verificapin.service';
 import mongoose from 'mongoose';
 import readline from 'readline-sync';
 
