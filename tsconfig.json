@@ -4,9 +4,17 @@
     "module": "commonjs",                                
     "esModuleInterop": true,                             
     "forceConsistentCasingInFileNames": true, 
-    "strict": true,                                      
+    "strict": true,                                       
     "skipLibCheck": true,
     "outDir": "./dist",
-    "rootDir": "./src"                           
-  }
+    "rootDir": "./src"
+  },
+  "include": [
+    "src",        // Incluir todo en src/
+    "src/tests"   // Incluir la carpeta tests dentro de src
+  ],
+  "exclude": [
+    "node_modules",    // Excluir node_modules
+    "dist"             // Excluir la carpeta dist
+  ]
 }
