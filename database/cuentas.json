@@ -1,0 +1,1 @@
+{"_id":{"$oid":"67fb13870164110bb3479f2c"},"numeroCuenta":"123456121","tipo":"Ahorros","saldo":1000,"clienteId":{"$oid":"67faed9768dd52eacc74274a"},"__v":0}
