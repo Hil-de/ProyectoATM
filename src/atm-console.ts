@@ -1,6 +1,6 @@
 import promptSync from 'prompt-sync';
-import connectDB from '../config/db';
-import { ATMService } from '../services/atm.service';
+import connectDB from './config/db';
+import { ATMService } from './services/atm.service';
 
 const prompt = promptSync();
 
