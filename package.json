@@ -26,7 +26,8 @@
     "express": "^4.21.2",
     "mongoose": "^8.13.2",
     "prompt-sync": "^4.2.0",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
