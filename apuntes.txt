@@ -1,1 +1,1 @@
-npx ts-node src/tests/verficarpin.ts
+npx ts-node src/tests/atm-console.ts
