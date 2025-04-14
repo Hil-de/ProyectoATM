@@ -1,1 +1,1 @@
-{"_id":{"$oid":"67fb148f0164110bb3479f38"},"numeroTarjeta":"98765432120932039","pin":"5678","estado":"Bloqueada","fechaExpiracion":{"$date":"2001-12-26T04:00:00Z"},"cuentaId":{"$oid":"67fb13870164110bb3479f2c"},"__v":0}
+{"_id":{"$oid":"67fb148f0164110bb3479f38"},"numeroTarjeta":"98765432120932039","pin":"5678","estado":"activo","fechaExpiracion":{"$date":"2001-12-26T04:00:00Z"},"cuentaId":{"$oid":"67fb13870164110bb3479f2c"},"__v":0}
