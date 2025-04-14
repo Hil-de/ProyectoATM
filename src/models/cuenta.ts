@@ -2,16 +2,15 @@ import { Schema, model, Document, Types } from 'mongoose';
 
 export interface ICuenta extends Document {
   numeroCuenta: string;
-  tipo: string;
+  tipo: 'Ahorro'|'Corriente';
   saldo: number;
-  clienteId: Types.ObjectId;
 }
 
 const cuentaSchema = new Schema<ICuenta>({
   numeroCuenta: { type: String, required: true, unique: true },
-  tipo: { type: String, required: true },
-  saldo: { type: Number, required: true },
-  clienteId: { type: Schema.Types.ObjectId, ref: 'Cliente', required: true }
+  tipo: { type: String, enum: ['Ahorro', 'Corriente'], required: true },
+  saldo: { type: Number, required: true, default: 0 },
 });
 
-export default model<ICuenta>('Cuenta', cuentaSchema);
+const cuentaModel = model<ICuenta>('Cuenta', cuentaSchema)
+export default cuentaModel;
