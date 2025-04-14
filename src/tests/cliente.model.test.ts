@@ -1,4 +1,3 @@
-// src/__tests__/cliente.model.test.ts
 import Cliente from '../models/cliente';
 
 describe('Modelo Cliente', () => {

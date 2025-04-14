@@ -1,10 +1,8 @@
-// src/__tests__/atm.service.test.ts
 import { ATMService } from '../services/atm.service';
 import Tarjeta from '../models/tarjeta';
 import Cuenta from '../models/cuenta';
 import Transaccion from '../models/transaccion';
 
-// Mocks para las bases de datos
 jest.mock('../models/tarjeta');
 jest.mock('../models/cuenta');
 jest.mock('../models/transaccion');
@@ -15,14 +13,12 @@ describe('ATMService', () => {
   beforeEach(() => {
     atmService = new ATMService();
 
-    // Resetear mocks antes de cada test
     Tarjeta.findOne = jest.fn();
     Cuenta.findById = jest.fn();
   });
 
   it('debería verificar el PIN correctamente', async () => {
     const mockTarjeta = { pin: '1234', estado: 'activo', _id: '12345' };
-    // Mock de la función findOne para devolver el mock de la tarjeta
     (Tarjeta.findOne as jest.Mock).mockResolvedValue(mockTarjeta);
 
     const result = await atmService.verificarPin('12345', '1234');
@@ -41,7 +37,6 @@ describe('ATMService', () => {
     const mockTarjeta = { pin: '1234', estado: 'activo', cuentaId: '67890' };
     const mockCuenta = { saldo: 5000 };
 
-    // Mock de findOne para tarjeta y findById para la cuenta
     (Tarjeta.findOne as jest.Mock).mockResolvedValue(mockTarjeta);
     (Cuenta.findById as jest.Mock).mockResolvedValue(mockCuenta);
 
@@ -53,7 +48,6 @@ describe('ATMService', () => {
     const mockTarjeta = { pin: '1234', estado: 'activo', cuentaId: '67890' };
     const mockCuenta = { saldo: 1000, save: jest.fn() };
 
-    // Mock de findOne para tarjeta y findById para la cuenta
     (Tarjeta.findOne as jest.Mock).mockResolvedValue(mockTarjeta);
     (Cuenta.findById as jest.Mock).mockResolvedValue(mockCuenta);
 

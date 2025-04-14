@@ -1,4 +1,3 @@
-// src/tests/cuenta.model.test.ts
 import mongoose from 'mongoose';
 import Cuenta from '../models/cuenta';
 
