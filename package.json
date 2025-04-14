@@ -6,7 +6,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "ts-node-dev src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,9 +29,12 @@
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.14.1",
     "@types/prompt-sync": "^4.2.3",
     "@types/readline-sync": "^1.4.8",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   }
