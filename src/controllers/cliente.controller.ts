@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Cliente from '../models/cliente'; // Importamos el modelo Cliente
+import Cliente from '../models/clientes'; // Importamos el modelo Cliente
 
 // Obtener todos los clientes
 export const getClientes = async (req: Request, res: Response) => {
