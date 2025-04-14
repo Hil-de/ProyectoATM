@@ -1,4 +1,3 @@
-// src/tests/tarjeta.model.test.ts
 import mongoose from 'mongoose';
 import Tarjeta from '../models/tarjeta';
 

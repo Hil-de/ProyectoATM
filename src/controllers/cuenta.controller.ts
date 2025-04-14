@@ -1,17 +1,17 @@
 import { Request, Response } from 'express';
-import Cuenta from '../models/cuenta'; // Asegúrate de tener el modelo creado
+import Cuenta from '../models/cuenta';
 
-// Obtener todas las cuentas
+// Obtener 
 export const getCuentas = async (req: Request, res: Response) => {
   try {
-    const cuentas = await Cuenta.find().populate('clienteId'); // para mostrar datos del cliente
+    const cuentas = await Cuenta.find().populate('clienteId'); 
     res.status(200).json(cuentas);
   } catch (error) {
     res.status(500).json({ message: 'Error al obtener cuentas', error });
   }
 };
 
-// Obtener cuenta por ID
+// Obtener por ID
 export const getCuentaById = async (req: Request, res: Response) => {
   try {
     const cuenta = await Cuenta.findById(req.params.id).populate('clienteId');
@@ -22,7 +22,7 @@ export const getCuentaById = async (req: Request, res: Response) => {
   }
 };
 
-// Crear nueva cuenta
+// Crear nueva 
 export const createCuenta = async (req: Request, res: Response) => {
   try {
     const nuevaCuenta = new Cuenta(req.body);
@@ -33,7 +33,7 @@ export const createCuenta = async (req: Request, res: Response) => {
   }
 };
 
-// Actualizar cuenta
+// Actualizar 
 export const updateCuenta = async (req: Request, res: Response) => {
   try {
     const cuentaActualizada = await Cuenta.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -44,7 +44,7 @@ export const updateCuenta = async (req: Request, res: Response) => {
   }
 };
 
-// Eliminar cuenta
+// Eliminar
 export const deleteCuenta = async (req: Request, res: Response) => {
   try {
     const cuentaEliminada = await Cuenta.findByIdAndDelete(req.params.id);

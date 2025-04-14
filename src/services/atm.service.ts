@@ -1,4 +1,3 @@
-// src/services/atm.service.ts
 import Tarjeta from '../models/tarjeta';
 import Cuenta from '../models/cuenta';
 import Transaccion from '../models/transaccion';

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import Tarjeta from '../models/tarjeta';
 
-// Obtener todas las tarjetas
+// Obtener 
 export const getTarjetas = async (req: Request, res: Response) => {
   try {
     const tarjetas = await Tarjeta.find().populate('cuentaId');
@@ -11,7 +11,7 @@ export const getTarjetas = async (req: Request, res: Response) => {
   }
 };
 
-// Obtener tarjeta por ID
+// Obtener por ID
 export const getTarjetaById = async (req: Request, res: Response) => {
   try {
     const tarjeta = await Tarjeta.findById(req.params.id).populate('cuentaId');
@@ -22,7 +22,7 @@ export const getTarjetaById = async (req: Request, res: Response) => {
   }
 };
 
-// Crear nueva tarjeta
+// Crear nueva
 export const createTarjeta = async (req: Request, res: Response) => {
   try {
     const nuevaTarjeta = new Tarjeta(req.body);
@@ -33,7 +33,7 @@ export const createTarjeta = async (req: Request, res: Response) => {
   }
 };
 
-// Actualizar tarjeta
+// Actualizar 
 export const updateTarjeta = async (req: Request, res: Response) => {
   try {
     const tarjetaActualizada = await Tarjeta.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -44,7 +44,7 @@ export const updateTarjeta = async (req: Request, res: Response) => {
   }
 };
 
-// Eliminar tarjeta
+// Eliminar 
 export const deleteTarjeta = async (req: Request, res: Response) => {
   try {
     const tarjetaEliminada = await Tarjeta.findByIdAndDelete(req.params.id);

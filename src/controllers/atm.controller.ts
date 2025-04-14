@@ -1,5 +1,3 @@
-// src/controllers/atm.controller.ts
-
 import { Request, Response } from 'express';
 import { ATMService } from '../services/atm.service';
 

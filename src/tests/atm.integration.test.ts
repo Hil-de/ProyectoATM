@@ -1,4 +1,3 @@
-// src/tests/atm.integration.test.ts
 import mongoose from 'mongoose';
 import connectDB from '../config/db';
 import Tarjeta from '../models/tarjeta';
