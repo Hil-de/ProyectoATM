@@ -70,9 +70,12 @@ describe('Pruebas integrales de ATMService', () => {
 
   it('debería lanzar error si los fondos son insuficientes para el retiro', async () => {
     const tarjeta = await Tarjeta.findOne({ numeroTarjeta: '98765432120932039' });
-
+    const cuenta = await Cuenta.findById(tarjeta!.cuentaId);
+  
+    const saldoActual = cuenta!.saldo;
+  
     await expect(
-      atmService.retirarEfectivo(tarjeta!.numeroTarjeta, '5678', 4000)
+      atmService.retirarEfectivo(tarjeta!.numeroTarjeta, '5678', saldoActual + 1000)
     ).rejects.toThrow('Fondos insuficientes');
   });
 

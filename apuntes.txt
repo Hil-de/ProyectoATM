@@ -1,3 +1,3 @@
-npx ts-node src/tests/atm-console.ts
+npx ts-node src/atm-console.ts
 npm test
 npx jest
