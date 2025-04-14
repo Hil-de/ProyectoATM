@@ -94,4 +94,52 @@ export class ATMService {
 
     return 'Retiro realizado con éxito';
   }
+
+  async hacerDepositoAOtraCuenta(numeroTarjeta: string, pin: string, numeroCuentaDestino: string, monto: number): Promise<string> {
+    const tarjeta = await Tarjeta.findOne({ numeroTarjeta });
+    if (!tarjeta) throw new Error('Tarjeta no encontrada');
+    if (tarjeta.estado !== 'activo') throw new Error('Tarjeta inactiva o bloqueada');
+
+    if (tarjeta.pin !== pin) {
+      await Transaccion.create({
+        tipo: 'depósito externo',
+        monto,
+        resultado: 'fallido',
+        tarjetaId: tarjeta._id,
+      });
+      throw new Error('PIN incorrecto');
+    }
+
+    const cuentaOrigen = await Cuenta.findById(tarjeta.cuentaId);
+    if (!cuentaOrigen) throw new Error('Cuenta de origen no encontrada');
+
+    const cuentaDestino = await Cuenta.findOne({ numeroCuenta: numeroCuentaDestino });
+    if (!cuentaDestino) throw new Error('Cuenta de destino no encontrada');
+
+    if (cuentaOrigen.saldo < monto) {
+      await Transaccion.create({
+        tipo: 'depósito externo',
+        monto,
+        resultado: 'fallido',
+        tarjetaId: tarjeta._id,
+      });
+      throw new Error('Fondos insuficientes para transferencia');
+    }
+
+    // Realizar transferencia
+    cuentaOrigen.saldo -= monto;
+    cuentaDestino.saldo += monto;
+
+    await cuentaOrigen.save();
+    await cuentaDestino.save();
+
+    await Transaccion.create({
+      tipo: 'depósito externo',
+      monto,
+      resultado: 'exitoso',
+      tarjetaId: tarjeta._id,
+    });
+
+    return 'Depósito a otra cuenta realizado con éxito';
+  }
 }
