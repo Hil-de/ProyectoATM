@@ -5,7 +5,6 @@ import connectDB from './config/db';
 import clienteRoutes from './routes/cliente.route';
 import cuentaRoutes from './routes/cuenta.route';
 import tarjetaRoutes from './routes/tarjeta.route';
-import atmRoutes from './routes/atm.route';
 
 const app = express();
 const port = 3000;
@@ -25,7 +24,6 @@ app.get('/', (req, res) => {
 app.use('/clientes', clienteRoutes);
 app.use('/cuentas', cuentaRoutes);
 app.use('/tarjetas', tarjetaRoutes);
-app.use('/atms', atmRoutes);
 
 // Escuchar en el puerto
 app.listen(port, () => {
