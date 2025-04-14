@@ -3,7 +3,7 @@ import { Schema, model, Document, Types } from 'mongoose';
 export interface ITarjeta extends Document {
   numeroTarjeta: string;
   pin: string;
-  estado: 'Activa' | 'Bloqueada';
+  estado: "activo" | "bloqueado";
   fechaExpiracion: Date;
   cuentaId: Types.ObjectId;
 }
@@ -11,11 +11,9 @@ export interface ITarjeta extends Document {
 const tarjetaSchema = new Schema<ITarjeta>({
   numeroTarjeta: { type: String, required: true, unique: true },
   pin: { type: String, required: true },
-  estado: { type: String, enum: ['Activa','Bloqueda'], required: true },
+  estado: { type: String, required: true, enum: ["activo", "bloqueado"] },
   fechaExpiracion: { type: Date, required: true },
   cuentaId: { type: Schema.Types.ObjectId, ref: 'Cuenta', required: true }
 });
 
-
-const TarjetaModel = model<ITarjeta>('Tarjeta', tarjetaSchema)
-export default TarjetaModel
+export default model<ITarjeta>('Tarjeta', tarjetaSchema);
