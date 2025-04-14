@@ -1,7 +1,0 @@
-npx ts-node src/atm-console.ts
-npm test
-npx jest
-
-Cuenta deposito: 1234567890
-
-Numero tarjeta: 98765432120932039
