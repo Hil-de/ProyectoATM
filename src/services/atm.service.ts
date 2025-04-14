@@ -21,6 +21,19 @@ export class ATMService {
     return tarjeta.pin === pinIngresado;
   }
 
+  async consultarSaldo(numeroTarjeta: string, pin: string): Promise<number> {
+    const tarjeta = await Tarjeta.findOne({ numeroTarjeta });
+    if (!tarjeta) throw new Error('Tarjeta no encontrada');
+    if (tarjeta.estado !== 'activo') throw new Error('Tarjeta inactiva o bloqueada');
+
+    if (tarjeta.pin !== pin) throw new Error('PIN incorrecto');
+
+    const cuenta = await Cuenta.findById(tarjeta.cuentaId);
+    if (!cuenta) throw new Error('Cuenta no encontrada');
+
+    return cuenta.saldo;
+  }
+
   async hacerDeposito(numeroTarjeta: string, pin: string, monto: number): Promise<string> {
     const tarjeta = await Tarjeta.findOne({ numeroTarjeta });
 
